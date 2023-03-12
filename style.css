@@ -27,6 +27,21 @@ h2 {
     font-family: 'Kanit', sans-serif;
 }
 
+@media (max-width: 600px) {
+    section {
+        margin: 50px auto 10px auto;
+        width: 95%;
+    } 
+    
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
 .task {
     display: grid;
     grid-template-columns: 4fr 2fr;
@@ -110,4 +125,81 @@ h2 {
 
 .task-completed .fa-trash {
     font-size: 2rem;
+}
+
+@media (max-width: 600px) {
+    .task {
+        width: 95%;
+        font-size: 1.2rem;
+        height: 40px;
+    }
+
+    .task div {
+        height: 20px;
+        margin: 10px 0 0 20px;
+    }
+
+    .task .task-icons {
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;        
+    }
+
+    i {
+        margin: 0 5px;
+    }
+    
+    .task-icons .fa-circle-check {
+        font-size: 1.8rem;
+    }
+    
+    .task-icons .fa-circle-xmark {
+        font-size: 1.8rem;
+    }
+    
+    .task-icons .fa-pen {
+        font-size: 1.5rem;
+    }
+
+    .new-task {
+        width: 95%;
+        font-size: 1.2rem;
+        height: 40px;
+    }
+
+    .new-task div {
+        height: 20px;
+        margin: 10px 0 0 20px;
+    }
+
+    .new-task .task-icons {
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;        
+    }
+
+    .new-task .fa-circle-plus {
+        font-size: 1.8rem;
+    }
+
+    .task-completed {
+        width: 95%;
+        font-size: 1.2rem;
+        height: 40px;
+    }
+
+    .task-completed div {
+        height: 20px;
+        margin: 10px 0 0 20px;
+    }
+
+    .task-completed .task-icons {
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;       
+    }
+
+    .task-completed .fa-trash {
+        font-size: 1.6rem;
+    }
 }
