@@ -3,20 +3,32 @@
     margin: 0;
 }
 
+body {
+    background-color: #EDEFF3;
+}
+
 section {
     display: grid;
     grid-template-columns: 1;
-    margin: 200px auto 0 auto;
+    margin: 100px auto 0 auto;
     width: 600px;
-    border: 2px black solid;
-    border-radius: 10px;    
+    /* height: 800px; */
+    /* border: 2px black solid; */
+    border-radius: 10px;   
+    background-color: #262B40;
+}
+
+.task-list {
+    min-height: 400px;
 }
 
 h1 {
     display: flex;
     justify-content: center;
     font-size: 2.5rem;
+    height: 50px;
     font-family: 'Tilt Warp', sans-serif;
+    color: #fdfdfe;
 }
 
 h2 {
@@ -25,13 +37,22 @@ h2 {
     margin-top: 20px;
     font-size: 2rem;
     font-family: 'Kanit', sans-serif;
+    color: #fdfdfe;
 }
 
 @media (max-width: 600px) {
+    body {
+        background-color: #262B40;
+    }
+
     section {
-        margin: 50px auto 10px auto;
+        margin: 25px auto 10px auto;
         width: 95%;
-    } 
+    }
+    
+    .task-list {
+        min-height: 300px;
+    }
     
     h1 {
         font-size: 2rem;
@@ -46,12 +67,13 @@ h2 {
     display: grid;
     grid-template-columns: 4fr 2fr;
     margin: 10px auto 0 auto;
-    width: 450px;
+    width: 550px;
     height: 50px;
-    border: 3px black solid;
+    border: 2px #fdfdfe solid;
     border-radius: 50px;
     font-size: 1.5rem;
     font-family: 'Rubik', sans-serif;
+    background-color: #fdfdfe;
 }
 
 .task div {
@@ -60,31 +82,35 @@ h2 {
 }
 
 .task .task-icons {
-    margin: 8px 0 0 15px;
+    margin: 9px 0 0 60px;
 }
 
 .task-icons .fa-circle-check {
-    font-size: 2.3rem;
+    font-size: 2.0rem;
+    color: #93C000;
 }
 
 .task-icons .fa-circle-xmark {
-    font-size: 2.3rem;
+    font-size: 2.0rem;
+    color: #BD0101;
 }
 
 .task-icons .fa-pen {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    color: #262B40;
 }
 
 .new-task {
     display: grid;
     grid-template-columns: 4fr 2fr;
     margin: 10px auto 0 auto;
-    width: 450px;
+    width: 550px;
     height: 50px;
-    border: 3px black solid;
+    border: 2px #fdfdfe solid;
     border-radius: 50px;
     font-size: 1.5rem;
     font-family: 'Rubik', sans-serif;
+    background-color: #fdfdfe;
 }
 
 .new-task div {
@@ -93,12 +119,17 @@ h2 {
 }
 
 .new-task .task-icons {
-    margin: 8px 0 0 15px;
+    margin: 10px 0 0 50px;
 }
 
 .task-icons .fa-circle-plus {
-    font-size: 2.3rem;
+    font-size: 2.0rem;
     margin-left: 80px;
+    color: #BD0101;
+}
+
+.completed {
+    min-height: 300px;
 }
 
 .task-completed {
@@ -106,12 +137,13 @@ h2 {
     grid-template-columns: 4fr 2fr;
     margin: 10px auto 0 auto;
     margin-bottom: 10px;
-    width: 450px;
+    width: 550px;
     height: 50px;
-    border: 3px black solid;
+    border: 2px #fdfdfe solid;
     border-radius: 50px;
     font-size: 1.5rem;
     font-family: 'Rubik', sans-serif;
+    background-color: #fdfdfe;
 }
 
 .task-completed div {
@@ -120,14 +152,19 @@ h2 {
 }
 
 .task-completed .task-icons {
-    margin: 10px 0 0 100px;
+    margin: 12px 0 0 135px;
 }
 
 .task-completed .fa-trash {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    color: #262B40;
 }
 
 @media (max-width: 600px) {
+    .completed {
+        min-height: 200px;
+    }
+
     .task {
         width: 95%;
         font-size: 1.2rem;
@@ -142,11 +179,12 @@ h2 {
     .task .task-icons {
         display: flex;
         justify-content: end;
-        margin-right: 20px;        
+        margin-right: 20px;
+        margin: 8px 15px 0 0;        
     }
 
     i {
-        margin: 0 5px;
+        margin: 0 3px;
     }
     
     .task-icons .fa-circle-check {
@@ -175,7 +213,8 @@ h2 {
     .new-task .task-icons {
         display: flex;
         justify-content: end;
-        margin-right: 20px;        
+        margin-right: 20px;
+        margin: 8px 15px 0 0;        
     }
 
     .new-task .fa-circle-plus {
@@ -196,7 +235,8 @@ h2 {
     .task-completed .task-icons {
         display: flex;
         justify-content: end;
-        margin-right: 20px;       
+        margin-right: 20px;
+        margin: 8px 15px 0 0;       
     }
 
     .task-completed .fa-trash {
