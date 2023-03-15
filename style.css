@@ -227,8 +227,14 @@ h2 {
     }
 
     .new-task div {
-        height: 20px;
+        height: 15px;
         margin: 10px 0 0 20px;
+    }
+
+    #input-new-task {
+        height: 20px;
+        font-size: 1.2rem;
+        margin: 0 0 15px 0;
     }
 
     .new-task .task-icons {
@@ -262,9 +268,5 @@ h2 {
 
     .task-completed .fa-trash {
         font-size: 1.6rem;
-    }
-
-    #input-new-task {
-        height: 20px;
     }
 }
