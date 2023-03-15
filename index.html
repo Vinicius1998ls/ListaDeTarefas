@@ -15,7 +15,7 @@
 
         <div class="task-list">
             <h2>Tarefas</h2>
-            <div class="task">
+            <!-- <div class="task">
                 <div>
                     <label for="">Tarefa 1</label>
                 </div>
@@ -24,9 +24,9 @@
                     <i class="fa-solid fa-circle-xmark"></i>
                     <i class="fa-solid fa-pen"></i>
                 </div>
-            </div>                
+            </div>                 -->
             
-            <div class="task">
+            <!-- <div class="task">
                 <div>
                     <label for="">Tarefa 2</label>
                 </div>
@@ -35,28 +35,31 @@
                     <i class="fa-solid fa-circle-xmark"></i>
                     <i class="fa-solid fa-pen"></i>
                 </div>
-            </div>  
+            </div>   -->
             
             <div class="new-task">
-                <div>
-                    <label for="">Nova tarefa</label>
+                <div id="new-task-name">
+                    <!-- <label id="label-new-task">Nova tarefa</label> -->
+                    <input type="text" id="input-new-task" placeholder="Nova tarefa">
                 </div>
                 <div class="task-icons">
-                    <i class="fa-solid fa-circle-plus"></i>
+                    <i class="fa-solid fa-circle-plus" onclick="addTask()"></i>
                 </div>
             </div>
         </div>
 
         <div class="completed">
             <h2>Concluidas</h2>
-            <div class="task-completed">
+
+            <!-- <div class="task-completed">
                 <div>
                     <label for=""><del>Tarefa 3</del></label>
                 </div>
                 <div class="task-icons">
                     <i class="fa-solid fa-trash"></i>
                 </div>
-            </div>
+            </div> -->
+
         </div>
     </section>    
 </body>

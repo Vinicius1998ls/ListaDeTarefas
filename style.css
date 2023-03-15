@@ -10,7 +10,7 @@ body {
 section {
     display: grid;
     grid-template-columns: 1;
-    margin: 100px auto 0 auto;
+    margin: 50px auto 0 auto;
     width: 600px;
     /* height: 800px; */
     /* border: 2px black solid; */
@@ -25,8 +25,9 @@ section {
 h1 {
     display: flex;
     justify-content: center;
-    font-size: 2.5rem;
     height: 50px;
+    margin-top: 25px;
+    font-size: 2.5rem;
     font-family: 'Tilt Warp', sans-serif;
     color: #fdfdfe;
 }
@@ -82,7 +83,11 @@ h2 {
 }
 
 .task .task-icons {
-    margin: 9px 0 0 60px;
+    margin: 9px 0 0 45px;
+}
+
+.task-icons i {
+    margin: 0 3px;
 }
 
 .task-icons .fa-circle-check {
@@ -160,6 +165,22 @@ h2 {
     color: #262B40;
 }
 
+#input-new-task {
+    height: 25px;
+    width: 95%;
+    border: none;
+    /* border-bottom: 2px black solid; */
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    font-family: 'Rubik', sans-serif;
+}
+
+#input-new-task:focus {
+    outline: none;
+    /* border: none; */
+    border-bottom: 2px black solid;
+}
+
 @media (max-width: 600px) {
     .completed {
         min-height: 200px;
@@ -183,7 +204,7 @@ h2 {
         margin: 8px 15px 0 0;        
     }
 
-    i {
+    .task-icons i {
         margin: 0 3px;
     }
     
@@ -241,5 +262,9 @@ h2 {
 
     .task-completed .fa-trash {
         font-size: 1.6rem;
+    }
+
+    #input-new-task {
+        height: 20px;
     }
 }
