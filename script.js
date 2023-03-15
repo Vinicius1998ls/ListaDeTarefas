@@ -16,16 +16,20 @@
 // }
 
 function addTask() {
-    const taskList = document.querySelector('.task-list')
-    const newTask = document.createElement('div')
-
     let taskName = document.getElementById('input-new-task').value
-
+    
     if(taskName == '') {
         taskName = 'Sem titulo'
     }
 
-    console.log(taskName)
+    const idName = taskName.replace(/\s+/g, '')
+
+    // console.log(idName)
+
+    const taskList = document.querySelector('.task-list')
+    const newTask = document.createElement('div')
+
+    // newTask.setAttribute('id', idName)
 
     newTask.innerHTML = `
         <div class="task">
@@ -33,7 +37,7 @@ function addTask() {
                 <label for="">${taskName}</label>
             </div>
             <div class="task-icons">
-                <i class="fa-solid fa-circle-check"></i>
+                <i class="fa-solid fa-circle-check" task-title="${taskName}" id="${idName}" onclick="completed(this.id)"></i>
                 <i class="fa-solid fa-circle-xmark"></i>
                 <i class="fa-solid fa-pen"></i>
             </div>
@@ -44,3 +48,27 @@ function addTask() {
     document.getElementById('input-new-task').value = ''
 }
 
+function completed(id) {
+    const idName = document.getElementById(id)
+
+    const taskName = idName.getAttribute('task-title') 
+    
+    const completedList = document.querySelector('.completed')
+    const taskCompleted = document.createElement('div')
+
+    taskCompleted.innerHTML = `
+        <div class="task-completed">
+            <div>
+                <label for=""><del>${taskName}</del></label>
+            </div>
+            <div class="task-icons">
+                <i class="fa-solid fa-trash"></i>
+            </div>
+        </div>`
+
+    completedList.insertBefore(taskCompleted, completedList.querySelector('h2').nextSibling)
+
+    const oldTask = idName.parentNode.parentNode.parentNode
+    
+    oldTask.remove()
+}
