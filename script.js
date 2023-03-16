@@ -38,7 +38,7 @@ function addTask() {
             </div>
             <div class="task-icons">
                 <i class="fa-solid fa-circle-check" task-title="${taskName}" id="${idName}" onclick="completed(this.id)"></i>
-                <i class="fa-solid fa-circle-xmark"></i>
+                <i class="fa-solid fa-circle-xmark" id="${idName}" onclick="deleteTask(this.id)"></i>
                 <i class="fa-solid fa-pen"></i>
             </div>
         </div>`
@@ -62,11 +62,19 @@ function completed(id) {
                 <label for=""><del>${taskName}</del></label>
             </div>
             <div class="task-icons">
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-trash" id="${idName}" onclick="deleteTask(this.id)"></i>
             </div>
         </div>`
 
     completedList.insertBefore(taskCompleted, completedList.querySelector('h2').nextSibling)
+
+    const oldTask = idName.parentNode.parentNode.parentNode
+    
+    oldTask.remove()
+}
+
+function deleteTask(id) {
+    const idName = document.getElementById(id)
 
     const oldTask = idName.parentNode.parentNode.parentNode
     
