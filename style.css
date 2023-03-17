@@ -105,6 +105,24 @@ h2 {
     color: #262B40;
 }
 
+.task .edit-task {
+    margin: 9px 0 0 80px;
+}
+
+.edit-task i {
+    margin: 0 3px;
+}
+
+.edit-task .fa-circle-check {
+    font-size: 2.0rem;
+    color: #93C000;
+}
+
+.edit-task .fa-circle-xmark {
+    font-size: 2.0rem;
+    color: #BD0101;
+}
+
 .new-task {
     display: grid;
     grid-template-columns: 4fr 2fr;
@@ -218,6 +236,25 @@ h2 {
     
     .task-icons .fa-pen {
         font-size: 1.5rem;
+    }
+
+    .task .edit-task {
+        display: flex;
+        justify-content: end;
+        margin-right: 20px;
+        margin: 8px 15px 0 0;        
+    }
+
+    .edit-task i {
+        margin: 0 3px;
+    }
+
+    .edit-task .fa-circle-check {
+        font-size: 1.8rem;
+    }
+    
+    .edit-task .fa-circle-xmark {
+        font-size: 1.8rem;
     }
 
     .new-task {
