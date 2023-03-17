@@ -12,8 +12,6 @@ section {
     grid-template-columns: 1;
     margin: 50px auto 0 auto;
     width: 600px;
-    /* height: 800px; */
-    /* border: 2px black solid; */
     border-radius: 10px;   
     background-color: #262B40;
 }
@@ -187,7 +185,6 @@ h2 {
     height: 25px;
     width: 95%;
     border: none;
-    /* border-bottom: 2px black solid; */
     margin: 0 0 10px 0;
     font-size: 1.5rem;
     font-family: 'Rubik', sans-serif;
@@ -195,7 +192,6 @@ h2 {
 
 #input-new-task:focus {
     outline: none;
-    /* border: none; */
     border-bottom: 2px black solid;
 }
 
@@ -235,7 +231,8 @@ h2 {
     }
     
     .task-icons .fa-pen {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-top: 3px;
     }
 
     .task .edit-task {
