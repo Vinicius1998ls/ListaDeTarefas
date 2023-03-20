@@ -1,4 +1,6 @@
 const idList = []
+const inEdit = []
+const labelList = []
 
 function addTask() {
     let taskName = document.getElementById('input-new-task').value
@@ -8,16 +10,16 @@ function addTask() {
     }
 
     let idName = taskName.replace(/\s+/g, '')
-   
+
     if (idList.includes(idName)) {
         let number = 1
         let numberString = 0
         let oldId = idName
-        while(idList.includes(idName)) {
+        while (idList.includes(idName)) {
             idName = oldId
             numberString = number.toString()
             idName = idName + numberString
-            number = number + 1            
+            number = number + 1
         }
 
         idList.push(idName)
@@ -73,7 +75,7 @@ function deleteTask(id) {
     const taskContainer = document.getElementById(id)
 
     taskContainer.remove()
-    
+
     idList.splice(idList.indexOf(id), 1)
 }
 
@@ -82,9 +84,10 @@ function editTask(id) {
     const taskContainer = document.getElementById(id)
     const Label = taskContainer.children[0].children[0]
     const labelValue = Label.textContent.trim()
+    labelList.push(labelValue)
 
     Label.remove()
-    taskContainer.children[0].innerHTML = `<input type="text" id="input-new-task" value="${labelValue}">`
+    taskContainer.children[0].innerHTML = `<input type="text" id="rename-task" value="${labelValue}">`
 
     const input = taskContainer.children[0].children[0]
     input.focus()
@@ -104,7 +107,6 @@ function editTask(id) {
         <i class="fa-regular fa-circle-xmark" id="cancel"></i>
     `
 
-
     const confirm = document.getElementById('confirm')
     confirm.addEventListener('click', () => {
         const newValue = input.value
@@ -122,6 +124,9 @@ function editTask(id) {
             <i class="fa-solid fa-circle-xmark" id="${id}" onclick="deleteTask(this.id)"></i>
             <i class="fa-solid fa-pen" id="${id}" onclick="editTask(this.id)"></i>
         `
+
+        inEdit.splice(inEdit.indexOf(inEdit[0]), 1)
+        labelList.splice(labelList.indexOf(labelList[0]), 1)
     })
 
     const cancel = document.getElementById('cancel')
@@ -140,6 +145,34 @@ function editTask(id) {
             <i class="fa-solid fa-circle-xmark" id="${id}" onclick="deleteTask(this.id)"></i>
             <i class="fa-solid fa-pen" id="${id}" onclick="editTask(this.id)"></i>
         `
+
+        inEdit.splice(inEdit.indexOf(inEdit[0]), 1)
+        labelList.splice(labelList.indexOf(labelList[0]), 1)
     })
 
+    inEdit.push(id)
+    if(inEdit[1] != undefined) {
+        let taskContainer = document.getElementById(inEdit[0])
+        if(!taskContainer.childElementCount > 0) {
+            taskContainer = taskContainer.parentNode.parentNode
+        }
+        
+        taskContainer.children[0].children[0].remove()
+        taskContainer.children[0].innerHTML = `<label>${labelList[0]}</label>`
+
+        const divIcons = taskContainer.children[1]
+        divIcons.classList.remove('edit-task')
+        divIcons.classList.add('task-icons')
+        while (divIcons.firstChild) {
+            divIcons.removeChild(divIcons.firstChild)
+        }
+        divIcons.innerHTML = `
+            <i class="fa-solid fa-circle-check" id="${inEdit[0]}" onclick="completed(this.id)"></i>
+            <i class="fa-solid fa-circle-xmark" id="${inEdit[0]}" onclick="deleteTask(this.id)"></i>
+            <i class="fa-solid fa-pen" id="${inEdit[0]}" onclick="editTask(this.id)"></i>
+        `
+        inEdit.splice(inEdit.indexOf(inEdit[0]), 1)
+        labelList.splice(labelList.indexOf(labelList[0]), 1)   
+    }
+    
 }
