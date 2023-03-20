@@ -21,7 +21,6 @@ function addTask() {
             idName = idName + numberString
             number = number + 1
         }
-
         idList.push(idName)
     } else {
         idList.push(idName)
@@ -46,6 +45,8 @@ function addTask() {
     taskList.insertBefore(newTask, taskList.querySelector('h2').nextSibling)
 
     document.getElementById('input-new-task').value = ''
+
+    cancelEdition()
 }
 
 function completed(id) {
@@ -69,6 +70,8 @@ function completed(id) {
     completedList.insertBefore(taskCompleted, completedList.querySelector('h2').nextSibling)
 
     taskContainer.remove()
+
+    cancelEdition()
 }
 
 function deleteTask(id) {
@@ -77,6 +80,8 @@ function deleteTask(id) {
     taskContainer.remove()
 
     idList.splice(idList.indexOf(id), 1)
+
+    cancelEdition()
 }
 
 function editTask(id) {
@@ -151,12 +156,12 @@ function editTask(id) {
     })
 
     inEdit.push(id)
-    if(inEdit[1] != undefined) {
+    if (inEdit[1] != undefined) {
         let taskContainer = document.getElementById(inEdit[0])
-        if(!taskContainer.childElementCount > 0) {
+        if (!taskContainer.childElementCount > 0) {
             taskContainer = taskContainer.parentNode.parentNode
         }
-        
+
         taskContainer.children[0].children[0].remove()
         taskContainer.children[0].innerHTML = `<label>${labelList[0]}</label>`
 
@@ -172,7 +177,32 @@ function editTask(id) {
             <i class="fa-solid fa-pen" id="${inEdit[0]}" onclick="editTask(this.id)"></i>
         `
         inEdit.splice(inEdit.indexOf(inEdit[0]), 1)
-        labelList.splice(labelList.indexOf(labelList[0]), 1)   
+        labelList.splice(labelList.indexOf(labelList[0]), 1)
     }
-    
+}
+
+function cancelEdition() {
+    if (inEdit[0] != undefined) {
+        let taskContainer = document.getElementById(inEdit[0])
+        if (!taskContainer.childElementCount > 0) {
+            taskContainer = taskContainer.parentNode.parentNode
+        }
+
+        taskContainer.children[0].children[0].remove()
+        taskContainer.children[0].innerHTML = `<label>${labelList[0]}</label>`
+
+        const divIcons = taskContainer.children[1]
+        divIcons.classList.remove('edit-task')
+        divIcons.classList.add('task-icons')
+        while (divIcons.firstChild) {
+            divIcons.removeChild(divIcons.firstChild)
+        }
+        divIcons.innerHTML = `
+            <i class="fa-solid fa-circle-check" id="${inEdit[0]}" onclick="completed(this.id)"></i>
+            <i class="fa-solid fa-circle-xmark" id="${inEdit[0]}" onclick="deleteTask(this.id)"></i>
+            <i class="fa-solid fa-pen" id="${inEdit[0]}" onclick="editTask(this.id)"></i>
+        `
+        inEdit.splice(inEdit.indexOf(inEdit[0]), 1)
+        labelList.splice(labelList.indexOf(labelList[0]), 1)
+    }
 }
